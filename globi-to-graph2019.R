@@ -9,6 +9,9 @@
 #remember to also set your working directory
 rm(list=ls())
 
+#remove old plots
+plot.new()
+
 #install packages if you dont have them
 #install.packages("rglobi")
 
@@ -69,9 +72,6 @@ write.table(totalInteractions, file='totalInteractions.tsv', quote=FALSE, sep='\
 #edit totalInteractions dataset to include only source taxon, target taxon and interaction type
 totalInteractionsSinplified <- data.frame(totalInteractions$source_taxon_name,totalInteractions$target_taxon_name,totalInteractions$interaction_type)
 
-#filter by one species
-#totalInteractionsSinplified <- filter(totalInteractions, totalInteractions$source_taxon_name=="Physaloptera maxillaris")
-
 #check the output
 head(totalInteractionsSinplified)
 
@@ -102,6 +102,8 @@ E(interactionsForGraph.network)
 
 #plot the graphs
 plot(interactionsForGraph.network,vertex.size=5, vertex.label.dist=0.5, layout=layout_in_circle)
+
+
 
 
 
